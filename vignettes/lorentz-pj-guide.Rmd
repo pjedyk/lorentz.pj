@@ -1,0 +1,55 @@
+---
+title: "Getting started with lorentz.pj"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with lorentz.pj}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installation
+
+Install the package from GitHub:
+
+```{r eval=FALSE}
+pak::pak("pjedyk/lorentz.pj")
+```
+
+## Overview
+
+The `lorentz.pj` package provides tools for fitting Lorentzian curves
+to spectroscopic data. The package includes:
+
+- `lorentz_fit()` — fits a Lorentzian curve using nonlinear least squares
+- `lorentz_predict()` — predicts values from a fitted model
+- `lorentz_plot()` — visualizes the fit using [ggplot2](https://ggplot2.tidyverse.org/)
+
+## Example: fitting spectroscopic data
+
+```{r}
+library(lorentz.pj)
+data(spectra)
+knitr::kable(head(spectra), caption = "First rows of the spectra dataset")
+```
+
+### Fitting the curve
+
+```{r}
+fit <- lorentz_fit(spectra$freq, spectra$readout)
+fit$f0
+fit$gamma
+fit$r2
+```
+
+### Visualizing the result
+
+```{r fig.width=6, fig.height=4}
+lorentz_plot(fit)
+```

@@ -1,0 +1,28 @@
+Package: lorentz.pj
+Type: Package
+Title: Lorentzian Curve Fitting for Spectroscopy Data
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Piotr", "Jedyk",
+      email = "piotr.jedyk.dokt@pw.edu.pl",
+      role = c("aut", "cre")
+    )
+  )
+Description: Fits Lorentzian curves to spectroscopic data using nonlinear
+    least squares. Provides functions for fitting, prediction, and
+    visualization of Lorentzian profiles.
+License: MIT + file LICENSE
+Depends: R (>= 3.5.0)
+Encoding: UTF-8
+LazyData: true
+Imports:
+    ggplot2,
+    rlang
+RoxygenNote: 7.3.3
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
